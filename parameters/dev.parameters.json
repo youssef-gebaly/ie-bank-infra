@@ -19,6 +19,9 @@
         },
         "appServiceAppName": {
             "value": "ie-bank-dev"
+        },
+        "location": {
+            "value": "North Europe"
         }
     }
 }
