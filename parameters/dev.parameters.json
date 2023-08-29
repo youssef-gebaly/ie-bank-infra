@@ -12,7 +12,7 @@
             "value": "ie-bank-db"
         },
         "appServicePlanName": {
-            "value": "ie-bank-app-sp-dev"
+            "value": "ie-bank-asp-dev"
         },
         "appServiceAPIAppName": {
             "value": "ie-bank-api-dev"

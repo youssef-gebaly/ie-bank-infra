@@ -30,8 +30,8 @@ resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   }
 }
 
-resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
-  name: appServiceAppName
+resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
+  name: appServiceAPIAppName
   location: location
   properties: {
     serverFarmId: appServicePlan.id
@@ -74,8 +74,8 @@ resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
   }
 }
 
-resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
-  name: appServiceAPIAppName
+resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
+  name: appServiceAppName
   location: location
   properties: {
     serverFarmId: appServicePlan.id
