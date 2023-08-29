@@ -42,4 +42,4 @@ jobs:
         subscriptionId: $SUBSCRIPTION_ID_DEV
         resourceGroupName: $RESOURCE_GROUP_DEV
         template: ./main.bicep
-        parameters: ./parameters/dev.parameters.json appServiceAPIEnvVarENV=${{ secrets.ENV }} param appServiceAPIEnvVarDBHOST=${{ secrets.DBHOST }} appServiceAPIEnvVarDBNAME=${{ secrets.DBNAME }} appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} appServiceAPIDBHostFLASK_APP=${{ secrets.FLASK_APP }} appServiceAPIDBHostFLASK_DEBUG=${{ secrets.FLASK_DEBUG }}
+        parameters: ./parameters/dev.parameters.json appServiceAPIEnvVarENV='${{ vars.ENV }}' param appServiceAPIEnvVarDBHOST=${{ vars.DBHOST }} appServiceAPIEnvVarDBNAME=${{ vars.DBNAME }} appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} appServiceAPIDBHostFLASK_APP=${{ vars.FLASK_APP }} appServiceAPIDBHostFLASK_DEBUG=${{ vars.FLASK_DEBUG }}
