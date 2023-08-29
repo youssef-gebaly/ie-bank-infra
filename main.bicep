@@ -101,6 +101,9 @@ module appService 'modules/app-service.bicep' = {
     appServiceAPIEnvVarDBPASS: appServiceAPIEnvVarDBPASS
     appServiceAPIEnvVarENV: appServiceAPIEnvVarENV
   }
+  dependsOn: [
+    postgresSQLDatabase
+  ]
 }
 
 output appServiceAppHostName string = appService.outputs.appServiceAppHostName
