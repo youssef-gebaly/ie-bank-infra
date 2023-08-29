@@ -1,0 +1,45 @@
+name: Azure Bicep Infra
+
+on: [push, workflow_dispatch]
+
+env:
+  RESOURCE_GROUP_DEV: ie-bank
+  SUBSCRIPTION_ID_DEV: 40671de7-26c1-4a7e-8591-9ace0aea34eb
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout code
+    - uses: actions/checkout@main
+
+      # Lint Bicep code 
+    - name: Run Bicep linter
+      run: az bicep build --file ./main.bicep
+
+  deploy-dev:
+#   if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Development'
+
+    steps:
+
+      # Checkout code
+    - uses: actions/checkout@main
+    
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # Deploy Bicep file
+    - name: deploy
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: $SUBSCRIPTION_ID_DEV
+        resourceGroupName: $RESOURCE_GROUP_DEV
+        template: ./main.bicep
+        parameters: ./parameters/dev.parameters.json appServiceAPIEnvVarENV=${{ secrets.ENV }} param appServiceAPIEnvVarDBHOST=${{ secrets.DBHOST }} appServiceAPIEnvVarDBNAME=${{ secrets.DBNAME }} appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} appServiceAPIDBHostFLASK_APP=${{ secrets.FLASK_APP }} appServiceAPIDBHostFLASK_DEBUG=${{ secrets.FLASK_DEBUG }}

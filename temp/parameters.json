@@ -1,0 +1,89 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "administratorLogin": {
+            "value": "iebankdbadmin"
+        },
+        "administratorLoginPassword": {
+            "value": null
+        },
+        "location": {
+            "value": "westeurope"
+        },
+        "serverName": {
+            "value": "ie-bank-db-test"
+        },
+        "serverEdition": {
+            "value": "Burstable"
+        },
+        "storageSizeGB": {
+            "value": 32
+        },
+        "haEnabled": {
+            "value": "Disabled"
+        },
+        "availabilityZone": {
+            "value": ""
+        },
+        "standbyAvailabilityZone": {
+            "value": ""
+        },
+        "version": {
+            "value": "15"
+        },
+        "tags": {
+            "value": {}
+        },
+        "firewallRules": {
+            "value": {
+                "rules": [
+                    {
+                        "name": "AllowAllAzureServicesAndResourcesWithinAzureIps_2023-8-27_16-9-43",
+                        "endIPAddress": "0.0.0.0",
+                        "startIPAddress": "0.0.0.0"
+                    }
+                ]
+            }
+        },
+        "storageAutogrow": {
+            "value": "Disabled"
+        },
+        "backupRetentionDays": {
+            "value": 7
+        },
+        "geoRedundantBackup": {
+            "value": "Disabled"
+        },
+        "vmName": {
+            "value": "Standard_B1ms"
+        },
+        "identityData": {
+            "value": {}
+        },
+        "dataEncryptionData": {
+            "value": {}
+        },
+        "apiVersion": {
+            "value": "2022-11-01-preview"
+        },
+        "aadEnabled": {
+            "value": false
+        },
+        "aadData": {
+            "value": {}
+        },
+        "authConfig": {
+            "value": {}
+        },
+        "network": {
+            "value": {}
+        },
+        "iopsTier": {
+            "value": ""
+        },
+        "guid": {
+            "value": "6e1f4859-3061-4303-a3f3-b934d4b1758d"
+        }
+    }
+}

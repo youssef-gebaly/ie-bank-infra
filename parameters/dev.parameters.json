@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "environmentType": {
+            "value": "nonprod"
+        },
+        "postgreSQLServerName": {
+            "value": "ie-bank-db-server-dev"
+        },
+        "postgreSQLDatabaseName": {
+            "value": "ie-bank-db"
+        },
+        "appServicePlanName": {
+            "value": "ie-bank-app-sp-dev"
+        },
+        "appServiceAPIAppName": {
+            "value": "ie-bank-api-dev"
+        },
+        "appServiceAppName": {
+            "value": "ie-bank-dev"
+        }
+    }
+}
