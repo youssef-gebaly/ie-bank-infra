@@ -17,11 +17,13 @@ param appServiceAPIDBHostFLASK_DEBUG string
 param environmentType string
 
 var appServicePlanSkuName = (environmentType == 'prod') ? 'B1' : 'F1'
+var appServicePlanSkuTier = (environmentType == 'prod') ? 'Basic' : 'Free'
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
   location: location
   sku: {
+    tier: appServicePlanSkuTier
     name: appServicePlanSkuName
   }
   kind: 'linux'
