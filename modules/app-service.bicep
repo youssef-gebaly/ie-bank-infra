@@ -69,6 +69,10 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           name: 'FLASK_DEBUG'
           value: appServiceAPIDBHostFLASK_DEBUG
         }
+        {
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'true'
+        }
       ]
     }
   }
