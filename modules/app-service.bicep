@@ -14,8 +14,8 @@ param appServiceAPIDBHostFLASK_DEBUG string
   'nonprod'
   'prod'
 ])
-param appServiceAppVUE_APP_ROOT_URL string
 param environmentType string
+param appServiceAppVUE_APP_ROOT_URL string
 
 var appServicePlanSkuName = (environmentType == 'prod') ? 'B1' : 'F1'
 
