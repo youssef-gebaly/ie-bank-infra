@@ -15,7 +15,6 @@ param appServiceAPIDBHostFLASK_DEBUG string
   'prod'
 ])
 param environmentType string
-param appServiceAppVUE_APP_ROOT_URL string
 
 var appServicePlanSkuName = (environmentType == 'prod') ? 'B1' : 'F1'
 
@@ -86,14 +85,15 @@ resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
     serverFarmId: appServicePlan.id
     httpsOnly: true
     siteConfig: {
-      linuxFxVersion: 'PYTHON|3.11'
+      linuxFxVersion: 'NODE|18-lts'
       alwaysOn: false
       ftpsState: 'FtpsOnly'
       appSettings: [
         {
-          name: 'VUE_APP_ROOT_URL'
-          value: appServiceAppVUE_APP_ROOT_URL
-        }]
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'true'
+        }
+      ]
     }
   }
 }

@@ -1,4 +1,4 @@
-name: Azure Bicep Infra
+name: ie-bank-infra
 
 on: [push, workflow_dispatch]
 
