@@ -41,6 +41,8 @@ param appServiceAPIDBHostDBUSER string
 param appServiceAPIDBHostFLASK_APP string
 @sys.description('The value for the environment variable FLASK_DEBUG')
 param appServiceAPIDBHostFLASK_DEBUG string
+@sys.description('The value for the app settings of the Frontend App Service App')
+param appServiceAppSettings array
 
 resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
   name: postgreSQLServerName
@@ -100,6 +102,7 @@ module appService 'modules/app-service.bicep' = {
     appServiceAPIEnvVarDBNAME: appServiceAPIEnvVarDBNAME
     appServiceAPIEnvVarDBPASS: appServiceAPIEnvVarDBPASS
     appServiceAPIEnvVarENV: appServiceAPIEnvVarENV
+    appServiceAppSettings: appServiceAppSettings
   }
   dependsOn: [
     postgresSQLDatabase
