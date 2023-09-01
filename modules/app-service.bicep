@@ -14,7 +14,7 @@ param appServiceAPIDBHostFLASK_DEBUG string
   'nonprod'
   'prod'
 ])
-param appServiceAppSettings array
+param appServiceAppVUE_APP_ROOT_URL string
 param environmentType string
 
 var appServicePlanSkuName = (environmentType == 'prod') ? 'B1' : 'F1'
@@ -89,7 +89,11 @@ resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
       linuxFxVersion: 'PYTHON|3.11'
       alwaysOn: false
       ftpsState: 'FtpsOnly'
-      appSettings: appServiceAppSettings
+      appSettings: [
+        {
+          name: 'VUE_APP_ROOT_URL'
+          value: appServiceAppVUE_APP_ROOT_URL
+        }]
     }
   }
 }
