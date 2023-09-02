@@ -88,12 +88,8 @@ resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
       linuxFxVersion: 'NODE|18-lts'
       alwaysOn: false
       ftpsState: 'FtpsOnly'
-      appSettings: [
-        {
-          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
-          value: 'true'
-        }
-      ]
+      appCommandLine: 'pm2 serve /home/site/wwwroot --spa --no-daemon'
+      appSettings: []
     }
   }
 }
