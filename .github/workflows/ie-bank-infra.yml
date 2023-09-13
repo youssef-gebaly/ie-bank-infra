@@ -3,8 +3,8 @@ name: ie-bank-infra
 on: [push, workflow_dispatch]
 
 env:
-  RESOURCE_GROUP_DEV: ie-bank
-  SUBSCRIPTION_ID_DEV: 40671de7-26c1-4a7e-8591-9ace0aea34eb
+  RESOURCE_GROUP_DEV: aguadamillas_students_1
+  SUBSCRIPTION_ID_DEV: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
 
 jobs:
   build:

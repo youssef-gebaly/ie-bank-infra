@@ -6,19 +6,19 @@
             "value": "nonprod"
         },
         "postgreSQLServerName": {
-            "value": "ie-bank-db-server-dev"
+            "value": "aguadamillas-dbsrv-dev"
         },
         "postgreSQLDatabaseName": {
-            "value": "ie-bank-db"
+            "value": "aguadamillas-db-dev"
         },
         "appServicePlanName": {
-            "value": "ie-bank-asp-dev"
+            "value": "aguadamillas-asp-dev"
         },
         "appServiceAPIAppName": {
-            "value": "ie-bank-api-dev"
+            "value": "aguadamillas-be-dev"
         },
         "appServiceAppName": {
-            "value": "ie-bank-dev"
+            "value": "aguadamillas-fe-dev"
         },
         "location": {
             "value": "North Europe"
