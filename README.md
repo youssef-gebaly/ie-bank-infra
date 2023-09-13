@@ -11,6 +11,8 @@
     - [Module `app-service.bicep`](#module-app-servicebicep)
   - [Configuration variables](#configuration-variables)
   - [Continuos Delivery](#continuos-delivery)
+    - [GitHub secrets](#github-secrets)
+    - [GitHub variables](#github-variables)
 
 ## Overview
 
