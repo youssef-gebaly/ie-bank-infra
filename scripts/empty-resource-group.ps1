@@ -13,7 +13,7 @@ Set-AzContext -SubscriptionId $subscriptionId | Out-Null
 foreach ($resource in Get-AzResource -ResourceGroupName $ResourceGroupName) {
     try {
         Write-Verbose "Removing resource $($resource.ResourceName)"
-        Remove-AzResource -ResourceId $resource.ResourceId -Force -
+        Remove-AzResource -ResourceId $resource.ResourceId -Force -Verbose
         Write-Verbose "Resource $($resource.ResourceName) removed"
     }
     catch {

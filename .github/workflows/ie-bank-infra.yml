@@ -1,6 +1,9 @@
 name: ie-bank-infra
 
-on: [push, workflow_dispatch]
+on:
+  push:
+      paths-ignore:
+        - 'scripts/**'
 
 env:
   RESOURCE_GROUP_DEV: aguadamillas_students_1
