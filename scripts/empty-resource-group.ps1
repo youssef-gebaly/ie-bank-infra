@@ -2,8 +2,13 @@
 param (
     [Parameter()]
     [string]
-    $ResourceGroupName
+    $ResourceGroupName,
+    [Parameter()]
+    [string]
+    $SubscriptionId
 )
+
+Set-AzContext -SubscriptionId $subscriptionId | Out-Null
 
 foreach ($resource in Get-AzResource -ResourceGroupName $ResourceGroupName) {
     try {
