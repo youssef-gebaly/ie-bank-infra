@@ -11,8 +11,8 @@ param (
 Write-Output "Seting subscription with subscription id '$subscriptionId'"
 Set-AzContext -SubscriptionId $subscriptionId | Out-Null
 
-0..1 | ForEach-Object {
-    Write-Output "Deleting all resources within resource group '$ResourceGroupName'"
+1..2 | ForEach-Object {
+    Write-Output ("Deleting all resources within resource group '$ResourceGroupName' (Attempt #$_)")
     foreach ($resource in Get-AzResource -ResourceGroupName $ResourceGroupName) {
         try {
             Write-Output "Removing resource $($resource.ResourceName)"
@@ -25,7 +25,7 @@ Set-AzContext -SubscriptionId $subscriptionId | Out-Null
         }
         catch {
             Write-Warning "Resource $($resource.ResourceName) could not be removed due to an exception"
-            Write-Verbose $_.Exception.Message
+            Write-Warning $_.Exception.Message
         }
     }
 }
