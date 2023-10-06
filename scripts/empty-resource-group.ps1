@@ -8,16 +8,24 @@ param (
     $SubscriptionId
 )
 
+Write-Output "Seting subscription with subscription id '$subscriptionId'"
 Set-AzContext -SubscriptionId $subscriptionId | Out-Null
 
-foreach ($resource in Get-AzResource -ResourceGroupName $ResourceGroupName) {
-    try {
-        Write-Verbose "Removing resource $($resource.ResourceName)"
-        Remove-AzResource -ResourceId $resource.ResourceId -Force -Verbose
-        Write-Verbose "Resource $($resource.ResourceName) removed"
-    }
-    catch {
-        Write-Warning "Resource $($resource.ResourceName) could not be removed"
-        Write-Verbose $_.Exception.Message
+0..1 | ForEach-Object {
+    Write-Output "Deleting all resources within resource group '$ResourceGroupName'"
+    foreach ($resource in Get-AzResource -ResourceGroupName $ResourceGroupName) {
+        try {
+            Write-Output "Removing resource $($resource.ResourceName)"
+            if (Remove-AzResource -ResourceId $resource.ResourceId -Force) {
+                Write-Output "Resource $($resource.ResourceName) removed"
+            }
+            else {
+                Write-Warning "Resource $($resource.ResourceName) could not be removed"
+            }
+        }
+        catch {
+            Write-Warning "Resource $($resource.ResourceName) could not be removed due to an exception"
+            Write-Verbose $_.Exception.Message
+        }
     }
 }
