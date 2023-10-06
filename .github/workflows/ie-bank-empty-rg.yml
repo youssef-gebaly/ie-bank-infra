@@ -17,8 +17,11 @@ jobs:
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+        enable-AzPSSession: true 
 
       # Deploy Bicep file
     - name: empty-resource-group
-      shell: pwsh
-      run: ./scripts/empty-resource-group -ResourceGroupName "${{ env.RESOURCE_GROUP_DEV }}" -SubscriptionId "${{ env.SUBSCRIPTION_ID_DEV }} "
+      uses: azure/powershell@v1
+      with:
+          inlineScript: ./scripts/empty-resource-group -ResourceGroupName "${{ env.RESOURCE_GROUP_DEV }}" -SubscriptionId "${{ env.SUBSCRIPTION_ID_DEV }} "
+          azPSVersion: "latest"
