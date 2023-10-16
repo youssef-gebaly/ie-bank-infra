@@ -9,6 +9,8 @@ on:
 
 env:
   RESOURCE_GROUP_DEV: aguadamillas_students_1
+  RESOURCE_GROUP_PROD: aguadamillas_students_2
+  RESOURCE_GROUP_RETAKERS: aguadamillas_students_2
   SUBSCRIPTION_ID_DEV: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
 
 jobs:
@@ -24,9 +26,23 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         enable-AzPSSession: true 
 
-      # Deploy Bicep file
-    - name: empty-resource-group
+      # Empty resource group dev
+    - name: empty-resource-group-dev
       uses: azure/powershell@v1
       with:
           inlineScript: ./scripts/empty-resource-group -ResourceGroupName "${{ env.RESOURCE_GROUP_DEV }}" -SubscriptionId "${{ env.SUBSCRIPTION_ID_DEV }} "
+          azPSVersion: "latest"
+
+      # Empty resource group prod
+    - name: empty-resource-group-prod
+      uses: azure/powershell@v1
+      with:
+          inlineScript: ./scripts/empty-resource-group -ResourceGroupName "${{ env.RESOURCE_GROUP_PROD }}" -SubscriptionId "${{ env.SUBSCRIPTION_ID_DEV }} "
+          azPSVersion: "latest"
+
+    # Empty resource group prod
+    - name: empty-resource-group-retakers
+      uses: azure/powershell@v1
+      with:
+          inlineScript: ./scripts/empty-resource-group -ResourceGroupName "${{ env.RESOURCE_GROUP_RETAKERS }}" -SubscriptionId "${{ env.SUBSCRIPTION_ID_DEV }} "
           azPSVersion: "latest"
