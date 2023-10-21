@@ -6,7 +6,7 @@ on:
       - 'scripts/**' # Trigger only with changes under folder 'scripts'
   schedule:
     - cron: '59 21 * * *' # Trigger at 23:59 CEST (UTC + 2) every day
-  workflow_dispatch: # Trigger manually
+#  workflow_dispatch: # Trigger manually
 
 env:
   RESOURCE_GROUP_DEV: aguadamillas_students_1
