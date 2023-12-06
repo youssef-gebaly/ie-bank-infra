@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - 'scripts/**' # Trigger only with changes under folder 'scripts'
-  schedule:
-    - cron: '59 21 * * *' # Trigger at 23:59 CEST (UTC + 2) every day
+#  schedule:
+#    - cron: '59 21 * * *' # Trigger at 23:59 CEST (UTC + 2) every day
   workflow_dispatch: # Trigger manually
 
 env:
