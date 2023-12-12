@@ -20,6 +20,12 @@
         "appServiceAppName": {
             "value": "youssef-gebaly-fe-dev"
         },
+        "azureMonitorName": {
+        "value": "youssef-gebaly-am-dev"
+        },
+        "appInsightsName": {
+        "value": "youssef-gebaly-ai-dev"
+        },
         "location": {
             "value": "Spain"
         }
