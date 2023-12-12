@@ -3,22 +3,28 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "environmentType": {
-            "value": "nonprod"
+            "value": "prod"
         },
         "postgreSQLServerName": {
-            "value": "youssef-gebaly-dbsrv-dev"
+            "value": "youssef-gebaly-dbsrv-uat"
         },
         "postgreSQLDatabaseName": {
-            "value": "youssef-gebaly-db-dev"
+            "value": "youssef-gebaly-db-uat"
         },
         "appServicePlanName": {
-            "value": "youssef-gebaly-asp-dev"
+            "value": "youssef-gebaly-asp-uat"
         },
         "appServiceAPIAppName": {
-            "value": "youssef-gebaly-be-dev"
+            "value": "youssef-gebaly-be-uat"
         },
         "appServiceAppName": {
-            "value": "youssef-gebaly-fe-dev"
+            "value": "youssef-gebaly-fe-uat"
+        },
+        "azureMonitorName": {
+        "value": "youssef-gebaly-am-uat"
+        },
+        "appInsightsName": {
+        "value": "youssef-gebaly-ai-uat"
         },
         "location": {
             "value": "Spain"
